@@ -1,0 +1,25 @@
+
+VIEWS NO DJANGO
+
+Function Based Views :
+
+ Request (requisição/pergunta) - index() (roda a função) - Response (retorna uma reposta) com request, index (template), context
+
+
+Class Based Views :
+
+ Views Django baseadas em classes. sendo que estas classes são executadas como função. Usando de recursos chamados de mixins para adicionar funcionalidades.
+ 
+ O que são Mixins ?
+ Mixins são classes Python que proveem alguma funcionalidade para ser herdada por outras classes mas que não são instanciadas por si só. Com o objetivo de adicionar funcionalidades para classes e melhorar a modularidade.
+
+ - As classes view base providas pelo Django sempre são posicionadas à direita.
+ - Mixins sempre são posicionados à esquerda da classe view base
+ - Mixins sempre devem herdar de object do Python
+
+ CLASS BASED VIEWS INTEGRADAS DO DJANGO
+ 
+ -Base
+ -List
+ -Detail
+ -Edit

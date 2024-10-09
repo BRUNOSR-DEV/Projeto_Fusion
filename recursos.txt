@@ -1,0 +1,49 @@
+No terminal:
+
+    pip install django psycopg2-binary gunicorn dj-static django-stdimage
+
+    pip freeze > requirements.txt
+
+    django-admin startproject fusion .
+
+    django-admin startapp core
+
+    'pip install model_mommy coverage'
+        - bibliotecas para testes, coverage mostra o que pode ser testado, model_mommy gerá objetos aleatórios
+
+    'pip freeze > requirements.txt '  #
+
+    coverage testa os testes e gera relatórios...
+
+        Crie o arquivo '.coveragerc' na pasta raiz do projeto. E digite:
+
+            [run]
+            source = .
+
+            omit = 
+                */__init__.py
+                */settings.py
+                */manage.py
+                */wsgi.py
+                */apps.py
+                */urls.py
+                */admin.py
+                */migrations/*
+                */tests/*
+
+        OBS. Apague o arquivo py 'tests.py'
+        No Terminal:
+
+            'coverage run manage.py test'     #roda os testes
+
+            'coverage report'
+
+            'coverage html'     # gera um arquivo html com relatórios de testes
+
+            'cd htmlcov'      #entrar na no diretório htmlcov
+
+            'py -m http.server'   # roda o servidor
+
+                http://127.0.0.1:8000   #porta para acessar arquivo htmlcov
+
+
