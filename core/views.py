@@ -11,8 +11,6 @@ from .models import Servico, Funcionario, Recursos
 from .forms import ContatoForm
 
 
-
-
 class IndexView(FormView):
     template_name =  'index.html'
     form_class = ContatoForm
@@ -24,7 +22,9 @@ class IndexView(FormView):
 
         context['funcionarios'] = Funcionario.objects.order_by('?').all()
 
-        context['recursos'] = Recursos.objects.order_by('?').all()
+        context['recursos1'] = Recursos.objects.order_by().all()[:3]
+
+        context['recursos2'] = Recursos.objects.order_by().all()[3:]
 
         return context
 

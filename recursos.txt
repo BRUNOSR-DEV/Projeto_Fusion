@@ -1,14 +1,17 @@
 No terminal:
 
-    pip install django psycopg2-binary gunicorn dj-static django-stdimage
+    " pip install django psycopg2-binary gunicorn dj-static django-stdimage "
 
-    pip freeze > requirements.txt
+    
 
-    django-admin startproject fusion .
+    " django-admin startproject 'nome_projeto' . " 
+		-ATENÇÃO:  (.) É usado para que se crie o diretório na pasta raiz. 
 
-    django-admin startapp core
+    " pip freeze > requirements.txt "
 
-    'pip install model_mommy coverage'
+    " django-admin startapp core "
+
+    " pip install model_mommy coverage "
         - bibliotecas para testes, coverage mostra o que pode ser testado, model_mommy gerá objetos aleatórios
 
     'pip freeze > requirements.txt '  #
