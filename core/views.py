@@ -7,7 +7,7 @@ from django.contrib import messages
 #Para usar o TemplateView é só imformar o nome do template
 
 
-from .models import Servico, Funcionario, Recursos
+from .models import Servico, Funcionario, Recursos, Clientes
 from .forms import ContatoForm
 
 
@@ -20,11 +20,14 @@ class IndexView(FormView):
         context =  super(IndexView, self).get_context_data(**kwargs)
         context['servicos'] = Servico.objects.order_by('?').all()
 
+        context['clientes'] = Clientes.objects.order_by('?').all()
+
         context['funcionarios'] = Funcionario.objects.order_by('?').all()
 
         context['recursos1'] = Recursos.objects.order_by().all()[:3]
 
         context['recursos2'] = Recursos.objects.order_by().all()[3:]
+
 
         return context
 
