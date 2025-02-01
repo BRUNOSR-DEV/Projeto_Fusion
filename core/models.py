@@ -98,12 +98,9 @@ class Funcionario(Base):
     def __str__(self) -> str:
         return self.nome
     
+    
 class Clientes(Base):
 
-    ICONE_CHOICES = (
-        ('lni-star-filled', 'EstrelaCheia'),
-        ('lni-star-half', 'EstrelaVazia'),
-    )
 
     nome = models.CharField('Nome', max_length=100,)
 
@@ -111,11 +108,10 @@ class Clientes(Base):
 
     descricao = models.TextField('Relato', max_length=400)
 
-    estrelas = models.IntegerField('Quantidade de Estrelas',default=1)
+    estrelas = models.IntegerField('Quantidade de Estrelas', max_length=5, help_text='Escolha de 1 a 5')
 
     imagem = StdImageField('Imagem', upload_to= get_file_path, variations={'thumb': {'width': 480, 'height': 480, 'crop': True }})
 
-    icone = models.CharField('Icone', max_length=15, choices=ICONE_CHOICES)
 
     class Meta:
         verbose_name = 'Cliente'

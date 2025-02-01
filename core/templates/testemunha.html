@@ -18,7 +18,23 @@
                   <div class="content">
                     <p class="description">{{ i.descricao }}</p>
 
-                    
+                    {% if i.estrelas == 1 %}
+                      <div class="star-icon mt-3">
+                        <span><i class="lni-star-filled"></i></span>
+                        <span><i class="lni-star-half"></i></span>
+                        <span><i class="lni-star-half"></i></span>
+                        <span><i class="lni-star-half"></i></span>
+                        <span><i class="lni-star-half"></i></span>
+                      </div>
+                    {% elif i.estrelas == 2 %}
+                      <div class="star-icon mt-3">
+                        <span><i class="lni-star-filled"></i></span>
+                        <span><i class="lni-star-filled"></i></span>
+                        <span><i class="lni-star-half"></i></span>
+                        <span><i class="lni-star-half"></i></span>
+                        <span><i class="lni-star-half"></i></span>
+                      </div>
+                    {% elif i.estrelas == 3 %}
                       <div class="star-icon mt-3">
                         <span><i class="lni-star-filled"></i></span>
                         <span><i class="lni-star-filled"></i></span>
@@ -26,6 +42,31 @@
                         <span><i class="lni-star-half"></i></span>
                         <span><i class="lni-star-half"></i></span>
                       </div>
+                    {% elif i.estrelas == 4 %}
+                      <div class="star-icon mt-3">
+                        <span><i class="lni-star-filled"></i></span>
+                        <span><i class="lni-star-filled"></i></span>
+                        <span><i class="lni-star-filled"></i></span>
+                        <span><i class="lni-star-filled"></i></span>
+                        <span><i class="lni-star-half"></i></span>
+                      </div>
+                    {% elif i.estrelas == 5 %}
+                      <div class="star-icon mt-3">
+                        <span><i class="lni-star-filled"></i></span>
+                        <span><i class="lni-star-filled"></i></span>
+                        <span><i class="lni-star-filled"></i></span>
+                        <span><i class="lni-star-filled"></i></span>
+                        <span><i class="lni-star-filled"></i></span>
+                      </div>
+                    {% elif i.estrelas > 5 %}
+                      <div class="star-icon mt-3">
+                        <span><i class="lni-star-filled"></i></span>
+                        <span><i class="lni-star-filled"></i></span>
+                        <span><i class="lni-star-filled"></i></span>
+                        <span><i class="lni-star-filled"></i></span>
+                        <span><i class="lni-star-filled"></i></span>
+                      </div>
+                    {% endif %}
                     
 
                   </div>
