@@ -56,7 +56,7 @@ class Recursos(Base):
 
     ICONE_CHOICES = (
         ('lni-rocket', 'Foguete'),
-        ('lni-laptop-phonep', 'Not-celular'),
+        ('lni-laptop-phone', 'Not-celular'),
         ('lni-cog', 'Engrenagem'),
         ('lni-leaf', 'Folha'),
         ('lni-layers', 'Camadas'),
@@ -108,9 +108,9 @@ class Clientes(Base):
 
     descricao = models.TextField('Relato', max_length=400)
 
-    estrelas = models.IntegerField('Quantidade de Estrelas', max_length=5, help_text='Escolha de 1 a 5')
+    estrelas = models.IntegerField('Quantidade de Estrelas', max_length=5, help_text='Escolha de 1 à 5')
 
-    imagem = StdImageField('Imagem', upload_to= get_file_path, variations={'thumb': {'width': 480, 'height': 480, 'crop': True }})
+    imagem = StdImageField('Imagem', upload_to= get_file_path, variations={'thumb': {'width': 75, 'height': 75, 'crop': True }})
 
 
     class Meta:
