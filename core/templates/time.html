@@ -5,9 +5,10 @@
         <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s">Conheça nossa Equipe</h2>
         <div class="shape wow fadeInDown" data-wow-delay="0.3s"></div>
       </div>
+      
       <div class="row">
         
-        {% for t in funcionarios %}
+        {% for t in page_obj %}
         <div class="col-lg-6 col-md-12 col-xs-12">
           <!-- Team Item Starts -->
           <div class="team-item wow fadeInRight" data-wow-delay="0.2s">
@@ -30,6 +31,8 @@
           <!-- Team Item Ends -->
         </div>
         {% endfor %}
+
+          {% include 'paginacao.html' %}
         
       </div>
     </div>

@@ -1,0 +1,44 @@
+{% if is_paginated %}
+
+            <nav aria-label="navegacao-paginacao">
+
+                <ul class="pagination">
+                    {% if page_obj.has_previous %} <!--Parte do botão anterior-->
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj_previous_page_number }}">&laquo;</a>
+                        </li>
+                    {% else %}
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#team">&laquo;</a>
+                        </li>
+                    {% endif %}
+
+                    {% for num in paginator.page_range %} <!--Parte de dentro (corpo)-->
+
+                        {% if page_obj.number == num %}
+                            <li class="page-item active">
+                                <a class="page-link" href="#team">{{ num }}</a>
+                            </li>
+                        {% else %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                            </li>
+                        {% endif %}
+
+                    {% endfor %}
+
+                    {% if page_obj.has_next %} <!--Parte do botão próximo-->
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.next_page_number }}">&raquo;</a>
+                        </li>
+                    {% else %}
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#team">&raquo;</a>
+                        </li>
+                    {% endif %}
+
+                </ul>
+
+            </nav>
+
+{% endif %}

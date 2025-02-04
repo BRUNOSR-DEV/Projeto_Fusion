@@ -1,5 +1,5 @@
 from typing import Any
-from django.views.generic import FormView # Do pacóte django.views.generic, estamos importando TemplateView
+from django.views.generic import ListView, FormView # Do pacóte django.views.generic, estamos importando TemplateView
 
 from django.urls import reverse_lazy
 from django.contrib import messages
@@ -11,18 +11,24 @@ from .models import Servico, Funcionario, Recursos, Clientes
 from .forms import ContatoForm
 
 
-class IndexView(FormView):
+class IndexView(ListView):
+    models = Funcionario
     template_name =  'index.html'
-    form_class = ContatoForm
+    paginate_by = 4
+    ordering = 'id'
+    queryset = Funcionario.objects.order_by('id').all()
+    #form_class = ContatoForm
     success_url = reverse_lazy('index')
+
 
     def get_context_data(self, **kwargs):
         context =  super(IndexView, self).get_context_data(**kwargs)
+
         context['servicos'] = Servico.objects.order_by('?').all()
 
         context['clientes'] = Clientes.objects.order_by('?').all()
 
-        context['funcionarios'] = Funcionario.objects.order_by('?').all()
+        #context['funcionarios'] = Funcionario.objects.order_by('?').all()
 
         context['recursos1'] = Recursos.objects.order_by().all()[:3]
 
