@@ -46,3 +46,11 @@ class RecursosTestCase(TestCase):
 
     def test_str(self):
         self.assertEquals(str(self.recursos), self.recursos.nome)
+
+class ClientesTestCase(TestCase):
+    
+    def setUp(self):
+        self.cliente = mommy.make('Clientes')
+
+    def test_str(self):
+        self.assertEquals(str(self.cliente), self.cliente.nome)

@@ -108,7 +108,7 @@ class Clientes(Base):
 
     descricao = models.TextField('Relato', max_length=400)
 
-    estrelas = models.IntegerField('Quantidade de Estrelas', max_length=5, help_text='Escolha de 1 à 5')
+    estrelas = models.IntegerField('Quantidade de Estrelas', help_text='Escolha de 1 à 5')
 
     imagem = StdImageField('Imagem', upload_to= get_file_path, variations={'thumb': {'width': 75, 'height': 75, 'crop': True }})
 

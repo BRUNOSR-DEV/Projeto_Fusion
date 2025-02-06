@@ -1,5 +1,7 @@
 from typing import Any
-from django.views.generic import ListView, FormView # Do pacóte django.views.generic, estamos importando TemplateView
+
+from django.views.generic import ListView, TemplateView , FormView # Do pacóte django.views.generic, estamos importando TemplateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from django.urls import reverse_lazy
 from django.contrib import messages
@@ -10,8 +12,10 @@ from django.contrib import messages
 from .models import Servico, Funcionario, Recursos, Clientes
 from .forms import ContatoForm
 
+class LoginView(TemplateView):
+    template_name = 'login.html'
 
-class IndexView(ListView):
+class IndexView(LoginRequiredMixin, ListView):
     models = Funcionario
     template_name =  'index.html'
     paginate_by = 4
@@ -28,7 +32,7 @@ class IndexView(ListView):
 
         context['clientes'] = Clientes.objects.order_by('?').all()
 
-        #context['funcionarios'] = Funcionario.objects.order_by('?').all()
+        context['funcionarios'] = Funcionario.objects.order_by('?').all()
 
         context['recursos1'] = Recursos.objects.order_by().all()[:3]
 

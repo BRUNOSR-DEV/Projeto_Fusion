@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'bootstrap4',
+    'social_django',
     'core',
 ]
 
@@ -66,6 +67,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -139,7 +142,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Email produção
-
 """
 EMAIL_HOST = 'localhost'
 EMAIL_HOST_USER = 'no-reply@fusion.com.br'
@@ -148,3 +150,17 @@ EMAIL_USE_TSL = True
 EMAIL_HOST_PASSAWORD = 'fusion'
 EMAEL_FROM_EMAIL = 'contato@fusion.com.br'
 """
+
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend', #Apenas se quiser manter a autenticação padrão do django
+
+]
+#documentação - python social auth > backends > social backends
+
+#CONFIGURAÇÃO PARA PAGINAS DE LOGIN
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'index'
+LOGOUT_URL = 'logout'
+LOGOUT_REDIRECT_URL = 'login'
