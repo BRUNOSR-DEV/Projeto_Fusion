@@ -6,7 +6,7 @@ from .views import IndexView, LoginView
 urlpatterns = [
     
 
-    path('login/', LoginView.as_view, name='login'), #rota de login, necessario para logar com a rede social
+    path('login/', auth_views.LoginView.as_view(template_name = 'login.html'), name='login'), #rota de login, necessario para logar com a rede social
     path ('logout/', auth_views.LogoutView.as_view(), name = 'logout'), #logout para desconectar 
     path('social-aut/', include('social_django.urls', namespace='social')), #necessario que ser usado os logins atráves das redes sociais
     
