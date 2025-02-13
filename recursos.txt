@@ -50,3 +50,4 @@ No terminal:
                 http://127.0.0.1:8000   #porta para acessar arquivo htmlcov
 
 
+ngrok config add-authtoken 2szNnOVL491ggiOzepCyi8nSR53_2BBY5fXobEFiVv3K7J7jE

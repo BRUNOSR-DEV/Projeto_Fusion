@@ -153,7 +153,9 @@ EMAEL_FROM_EMAIL = 'contato@fusion.com.br'
 
 AUTHENTICATION_BACKENDS = [
     'social_core.backends.facebook.FacebookOAuth2',
-    'django.contrib.auth.backends.ModelBackend', #Apenas se quiser manter a autenticação padrão do django
+    'django.contrib.auth.backends.ModelBackend',
+    
+    #Apenas se quiser manter a autenticação padrão do django
 
 ]
 #documentação - python social auth > backends > social backends
@@ -164,3 +166,22 @@ LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_URL = 'logout'
 LOGOUT_REDIRECT_URL = 'login'
+
+#PARA QUALQUER REDE SOCIAL
+SOCIAL_AUTH_RAISE_EXEPTIONS = False   
+
+#CONFIGURAÇÃO PARA FACEBOOK
+SOCIAL_AUTH_FACEBOOK_KEY = '1394442568589952'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'fa121b69c28ada056b4abd93f4e4b986'
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link']
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+    'fields':'id, name, email, picture.type(large), link'
+}
+SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [
+    ('name', 'name'),
+    ('email', 'email'),
+    ('picture', 'picture'),
+    ('link', 'profile_url'),
+]
+
+

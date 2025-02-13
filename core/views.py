@@ -12,6 +12,14 @@ from django.contrib import messages
 from .models import Servico, Funcionario, Recursos, Clientes
 from .forms import ContatoForm
 
+from django.http import JsonResponse
+
+def excluir_dados_usuario(request):
+    return JsonResponse({
+        "message": "Para solicitar a exclusão de seus dados, envie um e-mail para suporte@seudominio.com com o assunto 'Exclusão de Dados'."
+    })
+
+
 class LoginView(TemplateView):
     template_name = 'login.html'
 
