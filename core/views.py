@@ -3,21 +3,36 @@ from typing import Any
 from django.views.generic import ListView, TemplateView , FormView # Do pacóte django.views.generic, estamos importando TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
+
 from django.urls import reverse_lazy
 from django.contrib import messages
 
 #Para usar o TemplateView é só imformar o nome do template
-
 
 from .models import Servico, Funcionario, Recursos, Clientes
 from .forms import ContatoForm
 
 from django.http import JsonResponse
 
+
 def excluir_dados_usuario(request):
     return JsonResponse({
         "message": "Para solicitar a exclusão de seus dados, envie um e-mail para suporte@seudominio.com com o assunto 'Exclusão de Dados'."
     })
+
+
+def registro(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')  # Redireciona para a página de login após registo
+    else:
+        form = UserCreationForm()
+    
+    return render(request, 'registro.html', {'form': form})
 
 
 class LoginView(TemplateView):

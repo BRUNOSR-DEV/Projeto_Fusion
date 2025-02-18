@@ -8,8 +8,21 @@
     {% bootstrap_css %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>Login Fusion</title>
+    
 </head>
 <body>
+    
+    <div class="container">
+        <h2>Login</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Entrar</button>
+        </form>
+        
+        <p>Ainda não tem uma conta? <a href="{% url 'registro' %}">Registe-se aqui</a></p>
+    </div>
+
 
     <div class="container-fluid">
         
