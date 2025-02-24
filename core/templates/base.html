@@ -2,6 +2,17 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
+
+    <div class="row">
+      <div class="col-sm-12 mb-3">
+          <h1 class="text-center"> Bem Vindo(a) {{ user.username }} </h1>
+          <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+          </form>
+      </div>  
+    </div>
+    
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -77,6 +88,7 @@
         </div>
       </nav>
       <!-- Navbar End -->
+       
 
       {% block content %} {% endblock %}
 
