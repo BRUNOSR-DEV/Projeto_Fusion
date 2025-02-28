@@ -1,52 +1,26 @@
-{% load bootstrap4 %}
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% bootstrap_css %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>Login Fusion</title>
-    
-</head>
-<body>
-    
-    <div class="container">
-        <h2>Login</h2>
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="card p-4 shadow-lg" style="width: 350px;">
+        <h3 class="text-center">Login</h3>
         <form method="post">
             {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Entrar</button>
+            <div class="form-group">
+                <label for="id_username">Usuário</label>
+                {{ form.username }}
+            </div>
+            <div class="form-group">
+                <label for="id_password">Senha...</label>
+                {{ form.password }}
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Entrar</button>
         </form>
-        
-        <p>Ainda não tem uma conta? <a href="{% url 'registro' %}">Registe-se aqui</a></p>
-    </div>
-
-<!--
-    <div class="container-fluid">
-        
-        <div>
-            <h1 class="text-white text-center">
-                {% block title %} Logins {% endblock %}
-            </h1>
-            <div class="card p-5">
-                <div class="row">
-                    <div class="col--md-8 mx-auto social-cintainer my-2 order-md-1">
-                        <button class="btn btn-primary mb-2">
-                            <a href="{% url 'social:begin' 'facebook' %}">Login com Facebook</a>
-                        </button>
-                        <button class="btn btn-warning mb-2">
-                            <a href="#">Login com Instagram</a>
-                        </button>
-                    </div>
-                </div>
-            </div>    
+        <div class="text-center mt-3">
+            <small>Ainda não tem uma conta? <a href="{% url 'registro' %}">Registe-se aqui</a></small>
         </div>
-
     </div>
-{% bootstrap_javascript jquery='full' %}
--->
-
-</body>
-</html>
+</div>
+{% endblock %}
